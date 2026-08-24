@@ -1,19 +1,20 @@
-## Review
+## まとめ
 
-Great job completing the exercise! You have now:
+演習を最後まで進めました！ 演習では次の操作を行いました。
 
-- Enabled Code Scanning with CodeQL in your repository.
-- Introduced and detected a vulnerability using a pull request.
-- Reviewed and triaged CodeQL alerts.
-- Fixed a security vulnerability and verified the alert was resolved.
+- リポジトリで CodeQL によるコードスキャンを有効にしました。
+- pull request を使って脆弱性を作り、検出しました。
+- CodeQL アラートを確認して対応を決めました。
+- セキュリティ脆弱性を修正し、アラートが解決されたことを確認しました。
 
-By following these steps, you’ve learned how to use GitHub’s security features to keep your codebase safe. Remember, regularly reviewing and addressing security alerts is an important part of maintaining healthy projects.
+演習を通して、GitHub のセキュリティ機能を使い、コードベースを安全に保つ方法を学びました。
+健全なプロジェクトを維持するには、セキュリティアラートを定期的に確認して対応することが重要です。
 
-### What's next?
+### 次に学ぶこと
 
-- [Take another Skills exercise.](https://github.com/skills).
-- Visit the [CodeQL documentation](https://codeql.github.com/docs/) to learn about about customizing your code scanning.
-- Check out the [code scanning documentation](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning) to learn about connecting 3rd party scanning tools
-- Explore the [CodeQL CLI & VS Code extension](https://codeql.github.com/docs/codeql-cli/) to run and write custom queries locally.
-- Read the [triaging code scanning alerts guide](https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests) for best practices on investigating alerts.
-- Learn about [advanced CodeQL query features](https://docs.github.com/en/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/creating-a-custom-query) to build complex custom analyses.
+- [別の Skills 演習に取り組む。](https://github.com/skills)
+- [CodeQL ドキュメント](https://codeql.github.com/docs/)でコードスキャンのカスタマイズ方法を学ぶ。
+- [コードスキャンのドキュメント](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)で外部のスキャンツールを接続する方法を学ぶ。
+- [CodeQL CLI と VS Code 拡張機能](https://codeql.github.com/docs/codeql-cli/)を使い、ローカルで独自のクエリを実行、作成する。
+- [コードスキャンアラートのトリアージガイド](https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests)でアラートを調査するときの推奨事項を確認する。
+- [CodeQL クエリの高度な機能](https://docs.github.com/en/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/creating-a-custom-query)を学び、複雑な独自分析を作成する。

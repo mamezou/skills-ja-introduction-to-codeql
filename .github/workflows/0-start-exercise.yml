@@ -21,7 +21,7 @@ jobs:
     uses: skills/exercise-toolkit/.github/workflows/start-exercise.yml@v0.9.0
     with:
       exercise-title: "Introduction to CodeQL"
-      intro-message: "Learn to use CodeQL to find security vulnerabilities in your code."
+      intro-message: "CodeQL を使ってコード内のセキュリティ脆弱性を見つける方法を学びます。"
 
   post_next_step_content:
     name: Post next step content

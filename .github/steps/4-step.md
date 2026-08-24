@@ -1,40 +1,40 @@
-## Step 4: Fix Security Vulnerabilities
+## Step 4: セキュリティ脆弱性を修正する
 
-Finally, let's use the information provided by CodeQL to better understand the vulnerability and fix it.
+最後に、CodeQL が提供する情報を使って脆弱性を詳しく理解し、修正します。
 
-### ⌨️ Activity: Resolve an open alert
+### ⌨️ やること: 未対応のアラートを解決する
 
-1. Review the open alert and become familiar with the recommended changes.
+1. 未対応のアラートを確認し、推奨される変更内容を把握します。
 
-1. In the top navigation, select the **Code** tab.
+1. 上部のナビゲーションで **Code** タブを選びます。
 
-1. Ensure you are on the `main` branch then navigate to the `server` folder and select the `routes.py` file.
+1. `main` ブランチを開いていることを確認します。次に `server` フォルダーへ移動し、`routes.py` ファイルを選びます。
 
-1. In the top right of the preview, click the **Edit** button.
+1. プレビューの右上にある **Edit** ボタンをクリックします。
 
-   <img width="500" alt="edit button" src="../images/edit-button.png"/>
+   <img width="500" alt="Edit ボタン" src="../images/edit-button.png"/>
 
-1. Navigate to about **line 16** and modify it to the below.
+1. **16 行目**付近に移動し、次の内容に変更します。
 
    ```py
    "SELECT * FROM books WHERE name LIKE %s", name
    ```
 
-1. Above the editor in the top-right, click the **Commit changes...** button. Use the defaults options to commit directly to the `main` branch.
-   - CodeQL will now initiate a another scan.
+1. エディター右上の **Commit changes...** ボタンをクリックします。既定の選択肢を使い、`main` ブランチに直接コミットします。
+   - CodeQL による新しいスキャンが開始されます。
 
-1. Wait a moment for the **CodeQL** workflow to finish.
+1. **CodeQL** ワークフローが完了するまで少し待ちます。
 
-1. Return to the **Security and quality** tab and **Code Scanning** area.
-   - There should be no open alerts and 1 closed alert. Nice work! 🎉
-   - Feel free to review the closed alerts, especially the audit trail.
+1. **Security and quality** タブの **Code Scanning** 領域に戻ります。
+   - 未対応のアラートがなく、解決済みのアラートが 1 件あることを確認します。よくできました！ 🎉
+   - 解決済みのアラート、特に監査証跡を確認してもかまいません。
 
-1. Click on **Closed** to show our recently resolved alert.
+1. **Closed** をクリックし、解決したアラートを表示します。
 
-   <img width="350" alt="image" src="../images/closed-alerts-button.png" />
+   <img width="350" alt="Closed アラートを表示するボタン" src="../images/closed-alerts-button.png" />
 
-1. Open our alert and notice the audit trail now includes how the alert was fixed.
+1. アラートを開き、アラートの修正方法が監査証跡に追加されていることを確認します。
 
-   <img width="350" alt="image" src="../images/audit-trail-fixed-alert.png" />
+   <img width="350" alt="修正内容を示すアラートの監査証跡" src="../images/audit-trail-fixed-alert.png" />
 
-1. With our alert fixed, Mona will check your progress and share a final review. Nice work! You are all done! 🥳
+1. アラートを修正したので、Mona が作業を確認しています。少し待って、コメントを見てください。進捗と次の Step が投稿されます。

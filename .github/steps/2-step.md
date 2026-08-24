@@ -1,74 +1,75 @@
-## Step 2: Detect Vulnerabilities in a Pull Request
+## Step 2: pull request で脆弱性を検出する
 
-To see how Code Scanning works, we will introduce a vulnerability into the `routes.py` file to trigger an alert.
+コードスキャンの動作を確認するため、`routes.py` ファイルに脆弱性を作り、アラートを発生させます。
 
-### ⌨️ Activity: Create a vulnerability
+### ⌨️ やること: 脆弱性を作る
 
-1. In the top navigation, select the **Code** tab.
+1. 上部のナビゲーションで **Code** タブを選びます。
 
-1. Navigate to the `server` folder and select the `routes.py` file.
+1. `server` フォルダーに移動し、`routes.py` ファイルを選びます。
 
-1. In the top right of the preview, click the **Edit** button.
+1. プレビューの右上にある **Edit** ボタンをクリックします。
 
-   <img width="500" alt="edit button" src="../images/edit-button.png"/>
+   <img width="500" alt="Edit ボタン" src="../images/edit-button.png"/>
 
-1. Navigate to about **line 16** and modify it to the below.
+1. **16 行目**付近に移動し、次の内容に変更します。
 
    ```py
    "SELECT * FROM books WHERE name LIKE '%" + name + "%'"
    ```
 
-1. Above the editor in the top-right, click the **Commit changes...** button. In the prompt window, select the radio button for the **Create a new branch** option. **DO NOT commit to the main branch.**
+1. エディター右上の **Commit changes...** ボタンをクリックします。表示された画面で **Create a new branch** のラジオボタンを選びます。
+   **main ブランチにはコミットしないでください。**
 
-1. Click the **Propose changes** option and click **Create pull request**. Use the below branch name.
+1. **Propose changes** を選び、**Create pull request** をクリックします。ブランチ名には次の文字列を使用します。
 
    ```txt
    learning-codeql
    ```
 
-1. On the new page, below the pull request description, press the **Create pull request** button.
+1. 新しく表示されたページで、pull request の説明の下にある **Create pull request** ボタンを押します。
 
-### ⌨️ Activity: Review pull request
+### ⌨️ やること: pull request を確認する
 
-1. If needed, navigate to the newly created pull request from the previous activity.
+1. 必要に応じて、前の操作で作成した pull request を開きます。
 
-1. Scroll to the bottom of the pull request and search for a check named `CodeQL`. This is the analysis job scanning the proposed code changes in the pull request.
+1. pull request の一番下までスクロールし、`CodeQL` という名前のチェックを探します。pull request で提案されたコードの変更をスキャンする分析ジョブです。
 
-   <img width="500" alt="CodeQL check in progress" src="../images/codeql-check-in-progress.png" />
+   <img width="500" alt="実行中の CodeQL チェック" src="../images/codeql-check-in-progress.png" />
 
-1. If the job is still running, wait a few minutes for it to complete.
+1. ジョブがまだ実行中の場合は、完了するまで数分待ちます。
 
-1. Search the comments to find the results of the analysis.
-   - Notice that the results found a SQL injection vulnerability. It also suggests a fix.
-   - Don't worry about responding to this or resolving the problem (yet).
+1. コメントの中から分析結果を探します。
+   - SQL インジェクションの脆弱性が検出され、修正案も示されていることを確認します。
+   - 現時点では、コメントへの対応や問題の解決は必要ありません。
 
-   <img width="500" alt="code scan results" src="../images/code-scan-results.png" />
+   <img width="500" alt="コードスキャンの結果" src="../images/code-scan-results.png" />
 
-   > 💡 Tip: Clicking the **Show paths** link will provide additional insights about the alert's data flow from user input (source), through the application, and when it is acted on (sink).
+   > 💡 ヒント: **Show paths** リンクをクリックすると、ユーザー入力（source）からアプリケーション内を通り、処理される場所（sink）まで、アラートに関係するデータの流れを詳しく確認できます。
 
-### ⌨️ Activity: View the CodeQL scanning logs
+### ⌨️ やること: CodeQL のスキャンログを表示する
 
-1. In the top navigation, select the **Actions** tab.
+1. 上部のナビゲーションで **Actions** タブを選びます。
 
-1. In the left navigation, select the **CodeQL** entry to filter the workflow runs.
+1. 左側のナビゲーションで **CodeQL** を選び、ワークフローの実行を絞り込みます。
 
-   <img width="500" alt="codeql filter" src="../images/codeql-filter.png"/>
+   <img width="500" alt="CodeQL の絞り込み" src="../images/codeql-filter.png"/>
 
-1. Click on the workflow run with the name **PR #2** to open a page with more details.
+1. **PR #2** という名前のワークフロー実行をクリックし、詳細ページを開きます。
 
-   <img width="500" alt="codeql setup" src="../images/codeql-pr2.png"/>
+   <img width="500" alt="CodeQL の設定" src="../images/codeql-pr2.png"/>
 
-1. Expand the run jobs by clicking **Show all jobs** then click on the **Analyze (python)** entry. The list of all workflow steps is now shown.
+1. **Show all jobs** をクリックして実行ジョブを展開し、**Analyze (python)** をクリックします。ワークフローの全 Step が表示されます。
 
-   <img height="250" alt="matrix jobs" src="../images/matrix-jobs.png" />
+   <img height="250" alt="マトリックスジョブ" src="../images/matrix-jobs.png" />
 
-   <img height="250" alt="list of codeql jobs" src="../images/list-of-codeql-jobs.png" />
+   <img height="250" alt="CodeQL ジョブの一覧" src="../images/list-of-codeql-jobs.png" />
 
-1. Find the analysis entry and consider reviewing the logs.
+1. 分析の項目を探し、必要に応じてログを確認します。
 
-   <img width="500" alt="python analysis logs" src="../images/python-analysis-logs.png" />
+   <img width="500" alt="Python 分析のログ" src="../images/python-analysis-logs.png" />
 
-1. With the pull request started and CodeQL scan finished, Mona will check your progress and share the next steps.
+1. pull request を作成して CodeQL スキャンが完了したので、Mona が作業を確認しています。少し待って、コメントを見てください。進捗と次の Step が投稿されます。
 
 > [!TIP]
-> Check out the [Triage code scanning alerts in pull requests](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests) page to learn more about integration of code scanning into pull requests.
+> コードスキャンを pull request に組み込む方法について詳しくは、[pull request のコードスキャンアラートをトリアージする](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests)ページを参照してください。

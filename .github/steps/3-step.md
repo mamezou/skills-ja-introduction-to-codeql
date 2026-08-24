@@ -1,81 +1,85 @@
-## Step 3: Review and Triage CodeQL Alerts
+## Step 3: CodeQL アラートを確認して対応を決める
 
-With our pull request changes now reviewed by CodeQL, we now have some results to view. Let's learn about managing alerts.
+pull request の変更を CodeQL で確認し、分析結果を表示できるようになりました。アラートの管理方法を学びます。
 
-GitHub provides a **Security and quality** tab for securely managing all security related issues. CodeQL saves alerts using the same standard as many other analysis tools with the results showing up under the **Code scanning** area.
+GitHub には、セキュリティに関係する問題を安全に管理する **Security and quality** タブがあります。
+CodeQL は、多くの分析ツールと同じ標準形式でアラートを保存し、結果は **Code scanning** の領域に表示されます。
 
-<img width="600" alt="image" src="../images/security-tab-overview.png" />
+<img width="600" alt="Security and quality タブの概要" src="../images/security-tab-overview.png" />
 
-### What information do alerts provide?
+### アラートにはどのような情報が表示されるか
 
-The main area of an alert provides the resolution status, affected branch, code location, and classification information like severity and [CVE identification number](https://docs.github.com/en/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories#cve-identification-numbers).
+アラートの主要部分には、対応状況、影響を受けるブランチ、コード上の場所、重大度や
+[CVE 識別番号](https://docs.github.com/en/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories#cve-identification-numbers)などの分類情報が表示されます。
 
-After the status information, a detailed description of the issue, recommended solutions, and suggested code changes are provided.
+状況に関する情報の後には、問題の詳しい説明、推奨される解決策、変更案のコードが表示されます。
 
-<img width="600" alt="additional information" src="../images/additional-information.png"/>
+<img width="600" alt="アラートの追加情報" src="../images/additional-information.png"/>
 
-### What is CWE?
+### CWE とは
 
-Many of the patterns CodeQL scans for come from existing databases of vulnerabilities, which are categorized for easier understanding.
+CodeQL がスキャンするパターンの多くは、既存の脆弱性データベースに基づいており、理解しやすいように分類されています。
 
-The **Common Weakness Enumeration (CWE)** is a category system for hardware and software weaknesses and vulnerabilities. Think of it as a way to describe and categorize security issues in an application's source code. For more information on CWEs, see the Wikipedia article [Common Weakness Enumeration](https://en.wikipedia.org/wiki/Common_Weakness_Enumeration).
+**Common Weakness Enumeration（CWE）**は、ハードウェアとソフトウェアの弱点や脆弱性を分類する仕組みです。
+アプリケーションのソースコードに含まれるセキュリティ問題を説明し、分類するために使用します。
+CWE について詳しくは、Wikipedia の「[Common Weakness Enumeration](https://en.wikipedia.org/wiki/Common_Weakness_Enumeration)」を参照してください。
 
-### ⌨️ Activity: View existing alerts
+### ⌨️ やること: 既存のアラートを表示する
 
-1. In the top navigation, select the **Security and quality** tab.
+1. 上部のナビゲーションで **Security and quality** タブを選びます。
 
-1. In the left navigation, locate the **Findings** area and select the **Code scanning** option.
-   - Notice that there are no alerts. This is expected since the vulnerable code on the pull request has not been merged yet.
+1. 左側のナビゲーションで **Findings** の領域を探し、**Code scanning** を選びます。
+   - アラートがないことを確認します。脆弱性を含む pull request のコードはまだマージされていないため、想定どおりの結果です。
 
-1. Return to the recently created pull request. Ignore the failed check and click the **Merge pull request** button.
+1. 作成した pull request に戻ります。失敗したチェックは無視し、**Merge pull request** ボタンをクリックします。
 
-   <img width="300" alt="merge button" src="../images/merge-button.png" />
+   <img width="300" alt="Merge pull request ボタン" src="../images/merge-button.png" />
 
-1. Click the **Delete branch**. It is not needed anymore.
+1. **Delete branch** をクリックします。マージ後のブランチは不要です。
 
-1. Wait a moment for CodeQL to analyze the new changes to the `main` branch.
+1. CodeQL が `main` ブランチへの新しい変更を分析するまで、少し待ちます。
 
-1. Return to the **Security and quality** tab.
+1. **Security and quality** タブに戻ります。
 
-1. In the left navigation, notice that the **Code Scanning** option now has a `1` entry next to it, informing us of an open alert.
+1. 左側のナビゲーションで、**Code Scanning** の横に `1` と表示されていることを確認します。未対応のアラートが 1 件あることを示しています。
 
-   <img width="250" alt="code scanning alerts count" src="../images/code-scanning-alerts-count.png" />
+   <img width="250" alt="コードスキャンアラートの件数" src="../images/code-scanning-alerts-count.png" />
 
-### ⌨️ Activity: Review an Alert
+### ⌨️ やること: アラートを確認する
 
-1. In the left navigation, select the **Code scanning** option.
+1. 左側のナビゲーションで **Code scanning** を選びます。
 
-1. Click on the open alert.
+1. 未対応のアラートをクリックします。
 
-1. Notice the description, vulnerability description, and a recommended solution.
+1. 概要、脆弱性の説明、推奨される解決策を確認します。
 
-   <img width="600" alt="alert overview" src="../images/alert-overview.png" />
+   <img width="600" alt="アラートの概要" src="../images/alert-overview.png" />
 
-1. Notice the audit trail provides the source of the vulnerability and shows that it came from our pull request.
+1. 監査証跡に脆弱性の発生元が記録され、pull request から取り込まれたことが示されている点を確認します。
 
-### ⌨️ Activity: Dismiss and Reopen an Alert
+### ⌨️ やること: アラートを却下して再度開く
 
-1. In the top right, click **Dismiss alert** dropdown.
+1. 右上にある **Dismiss alert** ドロップダウンをクリックします。
 
-1. Select the `Used in tests` option and enter the below description.
+1. `Used in tests` を選び、次の説明を入力します。
 
    ```md
    This is a playground repository for learning about CodeQL alerts.
    ```
 
-   <img width="300" alt="dismiss alert options" src="../images/dismiss-alert-options.png" />
+   <img width="300" alt="アラートを却下する選択肢" src="../images/dismiss-alert-options.png" />
 
-1. Click the **Dismiss** button.
-   - The alert state will change to `Dismissed`.
-   - A read-only entry was added with the description to the audit trail showing who closed it.
+1. **Dismiss** ボタンをクリックします。
+   - アラートの状態が `Dismissed` に変わります。
+   - アラートを閉じた人と入力した説明を示す読み取り専用の項目が、監査証跡に追加されます。
 
-   <img width="300" alt="audit log entry showing alert dismissed" src="../images/audit-log-alert-dismissed.png" />
+   <img width="300" alt="アラートの却下を示す監査ログの項目" src="../images/audit-log-alert-dismissed.png" />
 
-1. In the top right, click the **Reopen alert** button.
-   - The alert state will change back to `Open`.
-   - A read-only entry was added to the audit trail showing who opened it.
+1. 右上にある **Reopen alert** ボタンをクリックします。
+   - アラートの状態が `Open` に戻ります。
+   - アラートを開いた人を示す読み取り専用の項目が、監査証跡に追加されます。
 
-1. With an alert closed and reopened, add a comment to this issue asking Mona to check our progress and share the next steps.
+1. アラートを閉じて再度開いたら、次のコメントを Issue に追加し、Mona に作業の確認と次の Step の投稿を依頼します。
 
    ```md
    Hey @professortocat, I've closed an reopened an alert. What is the next step?

@@ -1,50 +1,60 @@
-## Step 1: Enable Code Scanning
+## Step 1: コードスキャンを有効にする
 
-Let's start by learning a bit about code scanning with [CodeQL](https://codeql.github.com/) and how it helps secure your code.
+[CodeQL](https://codeql.github.com/) によるコードスキャンの概要と、コードの保護にどのように役立つかを学びます。
 
-### What is GitHub Code Scanning?
+### GitHub のコードスキャンとは
 
-[Code scanning](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning) is part of the [GitHub Advanced Security (GHAS)](https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security) product suite. It allows development teams to integrate security testing tools directly into the same process you already use for shipping code. It supports many types such as SAST, container, and infrastructure as code. And, the best part is that the results can also live directly in GitHub next to your code. No need for context switching! 🎉
+[コードスキャン](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)は、
+[GitHub Advanced Security（GHAS）](https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security)製品群の一部です。
+開発チームがコードをリリースする既存のプロセスに、セキュリティテストツールを直接組み込めます。
+静的アプリケーションセキュリティテスト（SAST）、コンテナー、Infrastructure as Code など、多くの種類に対応しています。
+分析結果はコードと並べて GitHub 上に表示できます。作業画面を切り替える必要はありません！ 🎉
 
 > [!TIP]
-> All features of GitHub Advanced Security are free for public repositories. However, private repositories require a compatible [paid account](https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
+> GitHub Advanced Security の全機能は、public リポジトリでは無料です。ただし、private リポジトリでは対応する[有料アカウント](https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)が必要です。
 
-### What is CodeQL?
+### CodeQL とは
 
-[CodeQL](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql) is a static analysis testing tool that helps you identify security weaknesses such as SQL injection, cross-site scripting, and code injection issues.
+[CodeQL](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)は、
+SQL インジェクション、クロスサイトスクリプティング、コードインジェクションなどのセキュリティ上の弱点を特定する静的解析テストツールです。
 
-Typically CodeQL [queries](https://codeql.github.com/docs/writing-codeql-queries/about-codeql-queries/) are collected into [query suites](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql-queries) to cover multiple patterns. When combined well, this can be a very powerful! To help with this, teams of security experts have pre-populated suites for many common scenarios and programming languages.
+通常、CodeQL の[クエリ](https://codeql.github.com/docs/writing-codeql-queries/about-codeql-queries/)は、複数のパターンを検出できるように
+[クエリスイート](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql-queries)にまとめられます。
+クエリを適切に組み合わせると、強力な分析が可能です。セキュリティ専門家のチームが、一般的な利用場面とプログラミング言語に対応する
+クエリスイートをあらかじめ用意しています。
 
-In many cases, taking advantage of CodeQL is as simple as accepting the default suite, but you can also select the extended suite or customize your own with [GitHub Actions]().
+多くの場合、既定のクエリスイートを選ぶだけで CodeQL を利用できます。拡張クエリスイートを選んだり、
+[GitHub Actions]() を使って独自のクエリスイートを設定したりすることもできます。
 
-<img width="250" align="right" alt="codeql default configuration box" src="../images/codeql-default-configuration-box.png"/>
+<img width="250" align="right" alt="CodeQL の既定の設定画面" src="../images/codeql-default-configuration-box.png"/>
 
-Here are some of the options the default configuration provides:
+既定の設定には、次の選択肢があります。
 
-- **Languages:** Supported languages will automatically be detected in your repository and scanning will be enabled.
+- **Languages:** 対応する言語をリポジトリから自動的に検出し、スキャンを有効にします。
 
-- **Query suites:** A list of the available suites of patterns that will be used. The **Default** or **Extended** are provided automatically.
+- **Query suites:** 使用する検出パターンのスイート一覧です。**Default** または **Extended** が自動的に用意されます。
 
-- **Runner type:** Type of GitHub Actions runner that will run the CodeQL analysis. This defaults to Standard GitHub Hosted Runners but can be customized to use [self-hosted runners](https://docs.github.com/en/enterprise-cloud@latest/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/configuring-code-scanning-for-your-appliance).
+- **Runner type:** CodeQL 分析を実行する GitHub Actions ランナーの種類です。既定では標準の GitHub-hosted runner を使用しますが、
+  [self-hosted runner](https://docs.github.com/en/enterprise-cloud@latest/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/configuring-code-scanning-for-your-appliance)を使用するように変更できます。
 
-- **Events:** Triggers for running a CodeQL scan. It's common to run before merging and on a schedule for production code.
+- **Events:** CodeQL スキャンを実行するトリガーです。本番コードでは、マージ前と定期スケジュールで実行するのが一般的です。
 
-### ⌨️ Activity: Enable code scanning with CodeQL
+### ⌨️ やること: CodeQL でコードスキャンを有効にする
 
-1. Open a second tab and navigate to this repository. Ensure you are on the **Code** tab.
+1. ブラウザーで別のタブを開き、演習用リポジトリを表示します。**Code** タブを開いていることを確認します。
 
-1. In the top navigation, select the **Settings** tab.
+1. 上部のナビゲーションで **Settings** タブを選びます。
 
-1. In the left navigation, find the **Security** section and select **Advanced Security**.
+1. 左側のナビゲーションで **Security** セクションを探し、**Advanced Security** を選びます。
 
-1. Scroll down and find the **Code scanning** area.
+1. 下へスクロールして **Code scanning** の領域を探します。
 
-1. In the **CodeQL** setting, click the **Set up** dropdown menu and choose **Default**.
+1. **CodeQL** の設定で **Set up** ドロップダウンメニューをクリックし、**Default** を選びます。
 
-   <img width="400" alt="enable code scanning" src="../images/enable-code-scanning.png"/>
+   <img width="400" alt="コードスキャンを有効にする画面" src="../images/enable-code-scanning.png"/>
 
-1. Click **Enable CodeQL**.
+1. **Enable CodeQL** をクリックします。
 
-   > 💡 Tip: This will trigger a first run of CodeQL. You can view the progress in the **Actions** tab.
+   > 💡 ヒント: CodeQL の最初の実行が開始されます。進行状況は **Actions** タブで確認できます。
 
-1. With CodeQL now enabled, Mona will check your progress and share the next steps.
+1. CodeQL を有効にしたので、Mona が作業を確認しています。少し待って、コメントを見てください。進捗と次の Step が投稿されます。
