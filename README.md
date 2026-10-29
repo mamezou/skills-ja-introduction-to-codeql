@@ -27,7 +27,7 @@ _安全でないコーディングパターンを特定し、解決して、再�
 演習をコピーするときは、次の設定を推奨します。
 
 - Owner は自分の個人アカウント、またはリポジトリを置く Organization を選びます。
-- private リポジトリは [Actions の実行時間](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions)を消費するため、public リポジトリを推奨します。
+- private リポジトリは [Actions の実行時間](https://docs.github.com/ja/billing/managing-billing-for-github-actions/about-billing-for-github-actions)を消費するため、public リポジトリを推奨します。
 
 20 秒待っても演習が始まらない場合は、次の手順を行います。
 

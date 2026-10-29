@@ -10,7 +10,7 @@ CodeQL は、多くの分析ツールと同じ標準形式でアラートを保�
 ### アラートにはどのような情報が表示されるか
 
 アラートの主要部分には、対応状況、影響を受けるブランチ、コード上の場所、重大度や
-[CVE 識別番号](https://docs.github.com/en/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories#cve-identification-numbers)などの分類情報が表示されます。
+[CVE 識別番号](https://docs.github.com/ja/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories#cve-identification-numbers)などの分類情報が表示されます。
 
 状況に関する情報の後には、問題の詳しい説明、推奨される解決策、変更案のコードが表示されます。
 

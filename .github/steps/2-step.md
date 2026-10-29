@@ -72,4 +72,4 @@
 1. pull request を作成して CodeQL スキャンが完了したので、Mona が作業を確認しています。少し待って、コメントを見てください。進捗と次の Step が投稿されます。
 
 > [!TIP]
-> コードスキャンを pull request に組み込む方法について詳しくは、[pull request のコードスキャンアラートをトリアージする](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests)ページを参照してください。
+> コードスキャンを pull request に組み込む方法について詳しくは、[pull request のコードスキャンアラートをトリアージする](https://docs.github.com/ja/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests)ページを参照してください。
