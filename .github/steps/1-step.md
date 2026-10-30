@@ -4,22 +4,22 @@
 
 ### GitHub のコードスキャンとは
 
-[コードスキャン](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)は、
-[GitHub Advanced Security（GHAS）](https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security)製品群の一部です。
+[コードスキャン](https://docs.github.com/ja/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)は、
+[GitHub Advanced Security（GHAS）](https://docs.github.com/ja/get-started/learning-about-github/about-github-advanced-security)製品群の一部です。
 開発チームがコードをリリースする既存のプロセスに、セキュリティテストツールを直接組み込めます。
 静的アプリケーションセキュリティテスト（SAST）、コンテナー、Infrastructure as Code など、多くの種類に対応しています。
 分析結果はコードと並べて GitHub 上に表示できます。作業画面を切り替える必要はありません！ 🎉
 
 > [!TIP]
-> GitHub Advanced Security の全機能は、public リポジトリでは無料です。ただし、private リポジトリでは対応する[有料アカウント](https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)が必要です。
+> GitHub Advanced Security の全機能は、public リポジトリでは無料です。ただし、private リポジトリでは対応する[有料アカウント](https://docs.github.com/ja/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)が必要です。
 
 ### CodeQL とは
 
-[CodeQL](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)は、
+[CodeQL](https://docs.github.com/ja/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)は、
 SQL インジェクション、クロスサイトスクリプティング、コードインジェクションなどのセキュリティ上の弱点を特定する静的解析テストツールです。
 
 通常、CodeQL の[クエリ](https://codeql.github.com/docs/writing-codeql-queries/about-codeql-queries/)は、複数のパターンを検出できるように
-[クエリスイート](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql-queries)にまとめられます。
+[クエリスイート](https://docs.github.com/ja/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql-queries)にまとめられます。
 クエリを適切に組み合わせると、強力な分析が可能です。セキュリティ専門家のチームが、一般的な利用場面とプログラミング言語に対応する
 クエリスイートをあらかじめ用意しています。
 
@@ -35,7 +35,7 @@ SQL インジェクション、クロスサイトスクリプティング、コ�
 - **Query suites:** 使用する検出パターンのスイート一覧です。**Default** または **Extended** が自動的に用意されます。
 
 - **Runner type:** CodeQL 分析を実行する GitHub Actions ランナーの種類です。既定では標準の GitHub-hosted runner を使用しますが、
-  [self-hosted runner](https://docs.github.com/en/enterprise-cloud@latest/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/configuring-code-scanning-for-your-appliance)を使用するように変更できます。
+  [self-hosted runner](https://docs.github.com/ja/enterprise-cloud@latest/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/configuring-code-scanning-for-your-appliance)を使用するように変更できます。
 
 - **Events:** CodeQL スキャンを実行するトリガーです。本番コードでは、マージ前と定期スケジュールで実行するのが一般的です。
 
